@@ -1,14 +1,14 @@
 var canvas = document.getElementById("canvas2")
 
-canvas.style.width = window.innerWidth/4 + "px";
 canvas.style.height = window.innerHeight/3 + "px";  
+canvas.style.width = canvas.style.height
 
 var ctx2 = canvas.getContext('2d')
 
 // Set actual size in memory (scaled to account for extra pixel density).
 var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
-canvas.width = Math.floor((window.innerWidth/4) * scale);
 canvas.height = Math.floor((window.innerHeight/3) * scale);
+canvas.width = canvas.height;
 
 var life2 = new Life2D()
 life2.randomize(0.5)

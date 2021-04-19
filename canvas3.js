@@ -1,17 +1,17 @@
 var canvas = document.getElementById("canvas3")
 
-canvas.style.width = window.innerWidth/4 + "px";
 canvas.style.height = window.innerHeight/3 + "px";  
+canvas.style.width = canvas.style.height
 
 var ctx3 = canvas.getContext('2d')
 
 // Set actual size in memory (scaled to account for extra pixel density).
 var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
-canvas.width = Math.floor((window.innerWidth/4) * scale);
 canvas.height = Math.floor((window.innerHeight/3) * scale);
+canvas.width = canvas.height;
 
 var life3 = new Life2D()
-life3.randomize(0.25)
+life3.randomize(0.5)
 
 function drawFrame3(){
     console.log("frame")

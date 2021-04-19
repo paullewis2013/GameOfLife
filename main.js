@@ -1,15 +1,18 @@
 //define 2D Game of life object
 function Life2D(){
 
+    //size of array
+    let size = 20
+
     //this line is complicated but will create a 2D array full of 0s
-    this.state = Array.from(Array(10), _ => Array(10).fill(0));
-    this.nextState = Array.from(Array(10), _ => Array(10).fill(0));
+    this.state = Array.from(Array(size), _ => Array(size).fill(0));
+    this.nextState = Array.from(Array(size), _ => Array(size).fill(0));
 
     //calculate next generation
     this.update = function(){
 
         //reset next state to zeros
-        this.nextState = Array.from(Array(10), _ => Array(10).fill(0));
+        this.nextState = Array.from(Array(size), _ => Array(size).fill(0));
 
         //loop through all cells
         for(let row = 0; row < this.state.length; row++){
@@ -67,7 +70,7 @@ function Life2D(){
         }
 
         this.state = Array.from(this.nextState);
-        this.nextState = Array.from(Array(10), _ => Array(10).fill(0));
+        this.nextState = Array.from(Array(size), _ => Array(size).fill(0));
 
     }
 
