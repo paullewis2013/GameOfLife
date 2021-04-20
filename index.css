@@ -1,4 +1,4 @@
-body{
+body, html{
     background-color: #073642;
     padding: 0;
     margin: 0;
@@ -9,9 +9,17 @@ body{
     left: 0;
     top: 0;
     width: 34vh;
+    height: 100vh;
+    padding: 0.5%;
 }
 #main{
     position: fixed;
     left: 34vh;
     top: 0;
+}
+.btn{
+    width: 48%;
+}
+p{
+    color: 	#fdf6e3;
 }

@@ -5,11 +5,14 @@
     <head>
     <meta charset="utf-8">
 
-    <title>GOL Project</title>
+    <title>Game of Life</title>
     <meta name="description" content="Graphics">
     <meta name="author" content="Paul Lewis">
 
     <link rel="stylesheet" href="index.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     </head>
 
@@ -17,8 +20,14 @@
         
         <div id="left">
             <canvas id="canvas1"></canvas><br>
-            <canvas id="canvas2"></canvas><br>
-            <canvas id="canvas3"></canvas>
+            <button type="button" class="btn btn-light">Pause</button>
+            <button type="button" class="btn btn-danger">Reset</button>
+            <p>An implementation of Conway's game of life written in Javascript</p>
+            <p>A 2D topdown view of the simulation is shown in the top left corner 
+                while a more complicated 3D rendering of the same simulation is displayed 
+                in the main section</p>
+            <!-- <canvas id="canvas2"></canvas><br>
+            <canvas id="canvas3"></canvas> -->
         </div>
 
         <div id ="main">
@@ -27,12 +36,14 @@
         </div>
         
 
-        <script src="main.js"></script>
-        <script src="canvas1.js"></script>
-        <script src="canvas2.js"></script>
-        <script src="canvas3.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r127/three.min.js" integrity="sha512-U4J4PbEJ2TMjFqPUSiKq7LLTHuEkPZVo0jl2fomi9pT7UAExh4xVi8KmoR7EfmyigH95aA68zpW7y3XzuoSurQ==" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
         <script src="canvasMain.js"></script>
+        <script src="canvas1.js"></script>
+        <!-- <script src="canvas2.js"></script>
+        <script src="canvas3.js"></script> -->
+        
+        
 
     </body>
 
