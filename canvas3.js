@@ -10,14 +10,13 @@ var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blu
 canvas.height = Math.floor((window.innerHeight/3) * scale);
 canvas.width = canvas.height;
 
-var life3 = new Life2D()
+var life3 = new Life2D(80)
 life3.randomize(0.5)
 
 function drawFrame3(){
-    console.log("frame")
     life3.update()
     
-    let h = canvas.height/life3.state.length;
+    let h = canvas.height/(life3.state.length * 1.55);
 
     for(let row = 0; row < life3.state.length; row++){
         for(let col = 0; col < life3.state[row].length; col++){
@@ -37,5 +36,5 @@ function drawFrame3(){
 }
 
 
-setInterval(drawFrame3, 100);
+setInterval(drawFrame3, 150);
 

@@ -1,8 +1,5 @@
 //define 2D Game of life object
-function Life2D(){
-
-    //size of array
-    let size = 20
+function Life2D(size){
 
     //this line is complicated but will create a 2D array full of 0s
     this.state = Array.from(Array(size), _ => Array(size).fill(0));
