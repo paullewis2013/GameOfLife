@@ -1,5 +1,5 @@
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 90, (.75*window.innerWidth) / window.innerHeight, 0.1, 1000 );
+const camera = new THREE.PerspectiveCamera( 70, (.75*window.innerWidth) / window.innerHeight, 0.1, 1000 );
 
 canvas = document.getElementById("canvasMain")
 
@@ -11,10 +11,10 @@ const geometry = new THREE.BoxGeometry(1,1,1);
 const material = new THREE.MeshBasicMaterial( { color: 	randColor(), wireframe: true } );
 
 
-camera.position.z = 35;
-camera.position.y = 65;
+camera.position.z = 45;
+camera.position.y = 95;
 camera.position.x = 10;
-camera.rotation.x = -0.9;
+camera.rotation.x = -1;
 camera.rotation.z = 0;
 
 // const color = 0xFFFFFF;
@@ -29,7 +29,7 @@ function randColor(){
 
     colors = [
         // 0xb58900,
-        0xcb4b16,
+        // 0xcb4b16,
         0xdc322f,
         0xd33682,
         0x6c71c4,
@@ -68,14 +68,18 @@ var frameNum = 0
 var currColer = 0xb58900
 var projectionsCounter = 0;
 
-var lifeSize = 64
+var lifeSize = 70
 
 lifeMain = new Life2D(lifeSize)
 currColer = randColor()
+// currColer =  0x6c71c4
+
+
 lifeMain.randomize(0.15)
 
 var cubeArr = [];
 var projections = [];
+var residue = [];
 // var lifeMain = new Life2D(48)
 
 for(let i = 0; i < lifeSize; i++){
@@ -117,17 +121,11 @@ const animate = function () {
         }
 
         //loop through projections and delete all old objects from scene
-        for(let i = 0; i < projections.length; i++){
-            for(let row = 0; row < projections[i].length; row++){
-                for(let col = 0; col < projections[i][row].length; col++){
-
-                    if(projections[i][row][col]){
-                        scene.remove(projections[i][row][col])
-                    }
-
-                }
-            }
+        for(let i = 0; i < residue.length; i++){
+            scene.remove(residue[i])
         }
+
+        residue = []
 
         projections = []
         projectionsCounter = 0;
@@ -157,6 +155,9 @@ const animate = function () {
                     tempCube.position.y =  projections.length 
                     projections[projections.length-1][row][col] = tempCube
                     scene.add(projections[projections.length-1][row][col])
+
+                    //marked for deletion
+                    residue.push(projections[projections.length-1][row][col])
                 }
 
             }
@@ -184,6 +185,61 @@ const animate = function () {
     drawFrame1()
 };
 
-setInterval(animate, 100);
-// animate();
+var pause = setInterval(animate, 110);
+var paused = false;
 
+// setInterval(clear, 50)
+
+function Pause(){
+
+    if(!paused){
+        clearInterval(pause);
+        paused = true;
+        document.getElementById("pause").innerHTML = "Resume"
+    }else{
+        pause = setInterval(animate, 110);
+        paused = false;
+        document.getElementById("pause").innerHTML = "Pause"
+    }
+}
+
+function Reset(){
+    frameNum = 0;
+    lifeMain.randomize(0.15)
+    currColer = randColor()
+
+    //loop through base
+    for(let i = 0; i < cubeArr.length; i++){
+        for(let j= 0; j < cubeArr[i].length; j++){
+
+            // let tempColor = randColor()
+            let tempMat = new THREE.MeshBasicMaterial( { color: currColer} );
+            cubeArr[i][j].material = tempMat
+
+        }
+    }
+
+    //loop through projections and delete all old objects from scene
+    for(let i = 0; i < residue.length; i++){
+        scene.remove(residue[i])
+    }
+
+    residue = []
+    projections = []
+    projectionsCounter = 0;
+
+    // pause = setInterval(animate, 110);
+    // paused = false;
+    // document.getElementById("pause").innerHTML = "Pause"
+}
+
+
+function clear(){
+
+    let counter = 0;
+
+    while(residue.length != 0 && counter < 100){
+        scene.remove(residue.shift())
+        counter++;
+    }
+}

@@ -20,20 +20,29 @@
         
         <div id="left">
             <canvas id="canvas1"></canvas><br>
-            <button type="button" class="btn btn-light">Pause</button>
-            <button type="button" class="btn btn-danger">Reset</button>
-            <p>An implementation of Conway's game of life written in Javascript</p>
-            <p>A 2D topdown view of the simulation is shown in the top left corner 
-                while a more complicated 3D rendering of the same simulation is displayed 
-                in the main section</p>
-            <!-- <canvas id="canvas2"></canvas><br>
-            <canvas id="canvas3"></canvas> -->
+            <button type="button" class="btn btn-light" onClick="Pause()" id="pause">Pause</button>
+            <button type="button" class="btn btn-danger" onClick="Reset()">Reset</button>
+            <p>
+                An implementation of Conway's game of life written in JavaScript
+            </p>
+            <p>
+                A 2D view of the simulation shows a game of life running on a 75x75 grid 
+            </p>
+            <p>
+                A 3D rendering of the same simulation uses height to display how the simulation has evolved over time
+            </p>
+
+            <div id="returnLink">
+                <a href="https://paullewis2013.github.io/Portfolio/">Return to Portfolio</a>
+            </div>
         </div>
 
         <div id ="main">
-            <!-- <h1>Paul Lewis</h1> -->
+            <h1>Conway's Game of Life</h1>
             <canvas id="canvasMain"></canvas>
         </div>
+
+        <h3 id="name">Paul Lewis</h1>
         
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r127/three.min.js" integrity="sha512-U4J4PbEJ2TMjFqPUSiKq7LLTHuEkPZVo0jl2fomi9pT7UAExh4xVi8KmoR7EfmyigH95aA68zpW7y3XzuoSurQ==" crossorigin="anonymous"></script>

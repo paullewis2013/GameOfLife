@@ -8,18 +8,29 @@ body, html{
     position: fixed;
     left: 0;
     top: 0;
-    width: 34vh;
+    width: 35vh;
     height: 100vh;
     padding: 0.5%;
+    text-align: center;
 }
 #main{
     position: fixed;
-    left: 34vh;
+    left: 35vh;
     top: 0;
 }
 .btn{
-    width: 48%;
+    width: 49%;
 }
 p{
     color: 	#fdf6e3;
+    padding: 1em;
+}
+h1,h3{
+    color: 	#fdf6e3;
+    padding: 5px;
+}
+#name{
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
